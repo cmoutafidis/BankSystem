@@ -1,4 +1,4 @@
-package askisi1.helpers;
+package banksystem.helpers;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

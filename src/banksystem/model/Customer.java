@@ -1,5 +1,5 @@
 
-package askisi1.model;
+package banksystem.model;
 
 /**
  * @author Charis

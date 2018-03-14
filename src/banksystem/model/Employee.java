@@ -1,5 +1,5 @@
 
-package askisi1.model;
+package banksystem.model;
 
 import java.util.concurrent.TimeUnit;
 

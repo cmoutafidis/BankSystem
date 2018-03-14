@@ -1,8 +1,8 @@
-package askisi1;
+package banksystem;
 
-import askisi1.helpers.InputHelper;
-import askisi1.model.Bank;
-import askisi1.model.Entrance;
+import banksystem.helpers.InputHelper;
+import banksystem.model.Bank;
+import banksystem.model.Entrance;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

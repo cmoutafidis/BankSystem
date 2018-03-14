@@ -1,4 +1,4 @@
-package askisi1.model;
+package banksystem.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
