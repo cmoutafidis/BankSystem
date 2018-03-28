@@ -38,7 +38,7 @@ public class Bank extends Thread {
                 curCustomer = this.queue.remove(0);
                 curEmployee.setCustomer(curCustomer);
                 curEmployee.start();
-                System.out.println("The customer with ticket number " + curCustomer.getTicket() + " will be occupied for " + curCustomer.getWaitTimeInSeconds() + " seconds.");
+//                System.out.println("The customer with ticket number " + curCustomer.getTicket() + " will be occupied for " + curCustomer.getWaitTimeInSeconds() + " seconds.");
             }
             if(!(this.isBankOpen || !this.queue.isEmpty())){
                 break;
