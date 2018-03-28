@@ -9,7 +9,7 @@ import java.util.Scanner;
 public final class InputHelper {
     public static int[] getInput(){
         Scanner in = new Scanner(System.in);
-        int a, b, c;
+        int a, b, c, d;
         
         while(true){
             System.out.print("Enter the number of the entrances of the bank (A): ");
@@ -44,11 +44,23 @@ public final class InputHelper {
                 in.nextLine();
             }
         }
+        while(true){
+            System.out.print("Enter the bank queue length (D): ");
+            try {
+                d = in.nextInt();
+                break;
+            }
+            catch(InputMismatchException exception){
+                System.out.println("Please enter an integer.");
+                in.nextLine();
+            }
+        }
         
-        int[] output = new int[3];
+        int[] output = new int[4];
         output[0] = a;
         output[1] = b;
         output[2] = c;
+        output[3] = d;
         
         return output;
     }

@@ -4,8 +4,6 @@ import banksystem.helpers.InputHelper;
 import banksystem.model.Bank;
 import banksystem.model.Entrance;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @author Charis
@@ -19,7 +17,7 @@ public class Main {
 
         int[] variables = InputHelper.getInput();
 
-        Bank bank = new Bank(variables[2]);
+        Bank bank = new Bank(variables[2], variables[3]);
         bank.start();
 
         ArrayList<Entrance> entrances = new ArrayList();

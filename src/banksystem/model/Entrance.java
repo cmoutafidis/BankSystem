@@ -22,13 +22,13 @@ public class Entrance extends Thread{
     @Override
     public void run() {
         while(this.customers != 0){
-            long time = (long)random.nextInt(1 - 0 + 1) + 0;
+            long time = (long)random.nextInt(10 - 1 + 1) + 1;
             try {
             TimeUnit.SECONDS.sleep(time);
             } catch (InterruptedException ex) {
                 System.out.println(ex);
             }
-            bank.addCustomerToQueue(new Customer((long)random.nextInt(1 - 0 + 1) + 0));
+            bank.addCustomerToQueue(new Customer((long)random.nextInt(10 - 1 + 1) + 1));
             this.customers--;
         }
         
