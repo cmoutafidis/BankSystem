@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * @author Charis
- * Git Repository: https://github.com/cmoutafidis/BankSystem
  */
 public class Bank extends Thread {
 

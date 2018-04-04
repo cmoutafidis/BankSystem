@@ -7,12 +7,10 @@ import java.util.ArrayList;
 
 /**
  * @author Charis
+ * Git Repository: https://github.com/cmoutafidis/BankSystem
  */
 public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
 
         int[] variables = InputHelper.getInput();
