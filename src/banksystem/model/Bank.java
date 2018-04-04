@@ -59,7 +59,12 @@ public class Bank extends Thread {
     }
 
     public synchronized void addCustomerToQueue(Customer customer, int entranceId, int average, int counter) {
+        boolean flag = true;
         while (this.isBankFull()) {
+            if(flag){
+                System.out.println("Bank is full!");
+                flag = false;
+            }
         }
         System.out.println("Ent: " + entranceId + " #" + counter);
         customer.setTicket(this.ticketCounter++);
