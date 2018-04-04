@@ -16,13 +16,13 @@ public class Main {
     public static void main(String[] args) {
 
         int[] variables = InputHelper.getInput();
-
+        System.out.println("Entrances      Tickets To Entrances     Employee Start      Employee End");
         Bank bank = new Bank(variables[2], variables[3]);
         bank.start();
 
         ArrayList<Entrance> entrances = new ArrayList();
         for (int i = 0; i < variables[0]; i++) {
-            Entrance entrance = new Entrance(bank, variables[1]);
+            Entrance entrance = new Entrance(bank, variables[1], (i + 1));
             entrance.start();
             entrances.add(entrance);
         }

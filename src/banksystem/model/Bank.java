@@ -23,59 +23,61 @@ public class Bank extends Thread {
         this.isBankOpen = true;
         this.bankLimit = d;
         for (int i = 0; i < c; i++) {
-            this.employeesWaiting.add(new Employee(this));
+            this.employeesWaiting.add(new Employee(this, i, 1));
         }
     }
-    
+
     @Override
     public void run() {
-        while(true){
-            if(!this.queue.isEmpty() && !this.employeesWaiting.isEmpty()){
+        while (true) {
+            if (!this.queue.isEmpty() && !this.employeesWaiting.isEmpty()) {
                 Customer curCustomer = null;
                 Employee curEmployee = null;
                 curEmployee = this.employeesWaiting.remove(0);
                 this.employeesWorking.add(curEmployee);
                 curCustomer = this.queue.remove(0);
                 curEmployee.setCustomer(curCustomer);
+                System.out.println("                                        Emp: " + curEmployee.getEmpId() + ", T: " + curCustomer.getTicket());
                 curEmployee.start();
-//                System.out.println("The customer with ticket number " + curCustomer.getTicket() + " will be occupied for " + curCustomer.getWaitTimeInSeconds() + " seconds.");
             }
-            if(!(this.isBankOpen || !this.queue.isEmpty())){
+            if (!(this.isBankOpen || !this.queue.isEmpty())) {
                 break;
             }
         }
     }
-    
-    public boolean isBankFull(){
+
+    public boolean isBankFull() {
         return this.queue.size() + this.employeesWorking.size() >= this.bankLimit;
     }
-    
-    public void openBank(){
+
+    public void openBank() {
         this.isBankOpen = true;
     }
-    
-    public void closeBank(){
+
+    public void closeBank() {
         this.isBankOpen = false;
     }
-    
-    public synchronized void addCustomerToQueue(Customer customer) {
-        while(this.isBankFull()) {}
-        System.out.println("A customer entered and got the ticket " + (this.ticketCounter) + ".");
+
+    public synchronized void addCustomerToQueue(Customer customer, int entranceId, int average, int counter) {
+        while (this.isBankFull()) {
+        }
+        System.out.println("Ent: " + entranceId + " #" + counter);
         customer.setTicket(this.ticketCounter++);
+        System.out.println("               E:" + entranceId + ", T: " + (this.ticketCounter - 1) + ", Av: " + this.queue.size() * average);
         this.queue.add(customer);
     }
 
     public Customer getNextCustomer() {
         return queue.remove(0);
     }
-    
-    public void transactionIsOver(Employee employee){
+
+    public void transactionIsOver(Employee employee) {
         this.employeesWorking.remove(employee);
-        employee = new Employee(this);
+        employee = new Employee(this, employee.getEmpId(), employee.getCounter());
         this.employeesWaiting.add(employee);
-        if(!this.isBankOpen && this.queue.isEmpty()){
+        if (!this.isBankOpen && this.queue.isEmpty() && this.employeesWorking.isEmpty()) {
             System.out.println("The Bank closed!");
         }
-                }
-    
     }
+
+}

@@ -1,21 +1,21 @@
-
 package banksystem.model;
 
 /**
  * @author Charis
  */
 public class Customer {
+
     private long waitTimeInSeconds = 0;
     private int ticket;
-    
-    public Customer(long waitTimeInSeconds){
+
+    public Customer(long waitTimeInSeconds) {
         this.waitTimeInSeconds = waitTimeInSeconds;
     }
 
     public long getWaitTimeInSeconds() {
         return waitTimeInSeconds;
     }
-    
+
     public int getTicket() {
         return ticket;
     }
